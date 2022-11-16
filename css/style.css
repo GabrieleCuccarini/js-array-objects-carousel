@@ -1,0 +1,67 @@
+.main-img-container {
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2 / 1;
+}
+
+.main-img-container img {
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1.5 / 1;
+    object-fit: cover;
+}
+
+.slider-container {
+    width: 100%;
+    position: relative;
+}
+
+.container {
+    padding: 0;
+    position: relative;
+}
+
+.prev-btn {
+    position: absolute;
+    left: calc(50% - 16px);
+    top: 1rem;
+    border-radius: 50%;
+}
+
+.next-btn {
+    position: absolute;
+    left: calc(50% - 16px);
+    bottom: 1rem;
+    border-radius: 50%;
+}
+
+.mini-slider {
+    height: 100%;
+    width: 20%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.mini-slider img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.5 / 1;
+}
+
+.absolute60 {
+    z-index: 2;
+    position: absolute;
+    bottom: 60px;
+    right: 20px;
+    color: white;
+}
+
+.absolute30 {
+    z-index: 2;
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+    color: white;
+}
