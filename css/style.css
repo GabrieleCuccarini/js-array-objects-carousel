@@ -38,7 +38,7 @@
 
 .mini-slider {
     height: 100%;
-    width: 20%;
+    width: 18%;
     position: absolute;
     top: 0;
     right: 0;
@@ -47,14 +47,15 @@
 .mini-slider img {
     display: block;
     width: 100%;
-    aspect-ratio: 1.5 / 1;
+    height: 20%;
+    aspect-ratio: 2 / 1;
 }
 
 .absolute60 {
     z-index: 2;
     position: absolute;
     bottom: 60px;
-    right: 20px;
+    left: 20px;
     color: white;
 }
 
@@ -62,6 +63,6 @@
     z-index: 2;
     position: absolute;
     bottom: 30px;
-    right: 20px;
+    left: 20px;
     color: white;
 }

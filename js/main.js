@@ -25,15 +25,23 @@ const sliderContainerEl = document.querySelector(".slider-container");
 const textContainerEl = document.querySelector(".text-container");
 const btnContainerEl = document.querySelector(".buttons-container");
 const mainImgContEl = document.querySelector(".main-img-container");
-let currentImgIndex = 0;
-mainImgContEl.src = images[currentImgIndex].image;
+const miniSliderEl = document.querySelector(".mini-slider");
+
+let currentIndex = 0;
+mainImgContEl.src = images[currentIndex].image;
 let titleEl = document.createElement("h2");
 let textEl = document.createElement("p");
-titleEl.innerHTML = images[currentImgIndex].title
-textEl.innerHTML = images[currentImgIndex].text
+titleEl.innerHTML = images[currentIndex].title
+textEl.innerHTML = images[currentIndex].text
 textContainerEl.append(titleEl, textEl)
 titleEl.classList.add("absolute60")
 textEl.classList.add("absolute30")
+
+for (let i = 0; i < images.length; i++) {
+    const thumbnail = document.createElement("img")
+    thumbnail.src = images[i].image;
+    miniSliderEl.append(thumbnail)
+}
 
 // AREA BOTTONI 
 // Bottone top per andare indietro
@@ -53,29 +61,29 @@ btnContainerEl.appendChild(nextBtnEl)
 
 // Funzione sul next-button per scrollare in avanti
 nextBtnEl.addEventListener( "click", function () {
-    currentImgIndex++;
+    currentIndex++;
     const lastIndex = images.length - 1 ;
     
-    if ( currentImgIndex > lastIndex ) {
-        currentImgIndex = 0;
+    if ( currentIndex > lastIndex ) {
+        currentIndex = 0;
     }    
     
-    titleEl.innerHTML = images[currentImgIndex].title
-    textEl.innerHTML = images[currentImgIndex].text
-    mainImgContEl.src = images[currentImgIndex].image
-    console.log(currentImgIndex);
+    titleEl.innerHTML = images[currentIndex].title
+    textEl.innerHTML = images[currentIndex].text
+    mainImgContEl.src = images[currentIndex].image
+    console.log(currentIndex);
 })
 
 // Funzione sul prev-button per scrollare all'indietro
 prevBtnEl.addEventListener( "click", function () {
-    currentImgIndex--;
+    currentIndex--;
 
-    if ( currentImgIndex < 0 ) {
-        currentImgIndex = 4;
+    if ( currentIndex < 0 ) {
+        currentIndex = 4;
       }
 
-      titleEl.innerHTML = images[currentImgIndex].title
-      textEl.innerHTML = images[currentImgIndex].text
-      mainImgContEl.src = images[currentImgIndex].image
-      console.log(currentImgIndex);    
+      titleEl.innerHTML = images[currentIndex].title
+      textEl.innerHTML = images[currentIndex].text
+      mainImgContEl.src = images[currentIndex].image
+      console.log(currentIndex);    
 })
