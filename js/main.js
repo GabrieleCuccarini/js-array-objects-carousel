@@ -28,6 +28,7 @@ const mainImgContEl = document.querySelector(".main-img-container");
 const miniSliderEl = document.querySelector(".mini-slider");
 
 let currentIndex = 0;
+let thumbnailImgIndex = 0
 mainImgContEl.src = images[currentIndex].image;
 let titleEl = document.createElement("h2");
 let textEl = document.createElement("p");
@@ -37,10 +38,15 @@ textContainerEl.append(titleEl, textEl)
 titleEl.classList.add("absolute60")
 textEl.classList.add("absolute30")
 
+// CICLO DI CREAZIONE DELLA THUMBNAIL
 for (let i = 0; i < images.length; i++) {
-    const thumbnail = document.createElement("img")
-    thumbnail.src = images[i].image;
-    miniSliderEl.append(thumbnail)
+    const thumbnailImg = document.createElement("img")
+    thumbnailImg.src = images[i].image;   
+    if (i > 0) {
+        thumbnailImg.classList.add("darker")
+    }
+    miniSliderEl.append(thumbnailImg)
+    console.log(thumbnailImg, thumbnailImgIndex)
 }
 
 // AREA BOTTONI 
@@ -67,7 +73,6 @@ nextBtnEl.addEventListener( "click", function () {
     if ( currentIndex > lastIndex ) {
         currentIndex = 0;
     }    
-    
     titleEl.innerHTML = images[currentIndex].title
     textEl.innerHTML = images[currentIndex].text
     mainImgContEl.src = images[currentIndex].image

@@ -1,7 +1,7 @@
 .main-img-container {
     display: block;
     position: relative;
-    width: 100%;
+    width: 82%;
     aspect-ratio: 2 / 1;
 }
 
@@ -24,15 +24,15 @@
 
 .prev-btn {
     position: absolute;
-    left: calc(50% - 16px);
-    top: 1rem;
+    left: 90%;
+    top: .7rem;
     border-radius: 50%;
 }
 
 .next-btn {
     position: absolute;
-    left: calc(50% - 16px);
-    bottom: 1rem;
+    left: 90%;
+    bottom: .7rem;
     border-radius: 50%;
 }
 
@@ -44,11 +44,23 @@
     right: 0;
 }
 
-.mini-slider img {
+.mini-slider > * {
     display: block;
     width: 100%;
     height: 20%;
     aspect-ratio: 2 / 1;
+}
+
+.active {
+    filter: brightness(1);
+}
+
+.darker {
+    filter: brightness(50%)
+}
+
+.mini-slider.flex-column:first-child {
+    width: 20%;
 }
 
 .absolute60 {
@@ -65,4 +77,8 @@
     bottom: 30px;
     left: 20px;
     color: white;
+}
+
+.mini-slider.flexcolumn img.active {
+    filter: brightness(1);
 }
