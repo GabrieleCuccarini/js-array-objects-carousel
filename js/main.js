@@ -36,18 +36,23 @@ titleEl.innerHTML = images[currentIndex].title
 textEl.innerHTML = images[currentIndex].text
 textContainerEl.append(titleEl, textEl)
 titleEl.classList.add("absolute60")
-textEl.classList.add("absolute30")
+textEl.classList.add("absolute0")
+
+let thumbImageArray = []
 
 // CICLO DI CREAZIONE DELLA THUMBNAIL
 for (let i = 0; i < images.length; i++) {
     const thumbnailImg = document.createElement("img")
-    thumbnailImg.src = images[i].image;   
+    thumbnailImg.src = images[i].image;  
+    thumbImageArray.push(thumbnailImg) 
     if (i > 0) {
         thumbnailImg.classList.add("darker")
     }
     miniSliderEl.append(thumbnailImg)
     console.log(thumbnailImg, thumbnailImgIndex)
 }
+
+console.log(thumbImageArray)
 
 // AREA BOTTONI 
 // Bottone top per andare indietro
@@ -67,12 +72,17 @@ btnContainerEl.appendChild(nextBtnEl)
 
 // Funzione sul next-button per scrollare in avanti
 nextBtnEl.addEventListener( "click", function () {
+    console.log(thumbImageArray)
     currentIndex++;
     const lastIndex = images.length - 1 ;
-    
     if ( currentIndex > lastIndex ) {
         currentIndex = 0;
-    }    
+        thumbImageArray[4].classList.add("darker")
+    } else {
+        thumbImageArray[currentIndex - 1].classList.add("darker")
+    }
+    thumbImageArray[currentIndex].classList.remove("darker")
+  
     titleEl.innerHTML = images[currentIndex].title
     textEl.innerHTML = images[currentIndex].text
     mainImgContEl.src = images[currentIndex].image
@@ -81,11 +91,15 @@ nextBtnEl.addEventListener( "click", function () {
 
 // Funzione sul prev-button per scrollare all'indietro
 prevBtnEl.addEventListener( "click", function () {
+    console.log(thumbImageArray)
     currentIndex--;
-
     if ( currentIndex < 0 ) {
         currentIndex = 4;
-      }
+        thumbImageArray[0].classList.add("darker")
+    } else {
+        thumbImageArray[currentIndex + 1].classList.add("darker")
+    }
+    thumbImageArray[currentIndex].classList.remove("darker")
 
       titleEl.innerHTML = images[currentIndex].title
       textEl.innerHTML = images[currentIndex].text

@@ -71,14 +71,11 @@
     color: white;
 }
 
-.absolute30 {
+.absolute0 {
     z-index: 2;
     position: absolute;
-    bottom: 30px;
+    width: 80%;
+    bottom: 0px;
     left: 20px;
     color: white;
-}
-
-.mini-slider.flexcolumn img.active {
-    filter: brightness(1);
 }
